@@ -7,6 +7,9 @@ class TreeNode <K, V> {
     private TreeNode<K, V> right;
 
 
+
+    // Constructor
+
     public TreeNode (K k, V v, TreeNode<K, V> l, TreeNode<K, V> r) {
      pair = new KeyValuePair<K, V> (k, v);
      left = l;
@@ -14,6 +17,8 @@ class TreeNode <K, V> {
      }
 
 
+
+     // Function to add a new element to the BST
     public void add (K key, V val, Comparator<K> comp) {
      if (comp.compare(key, pair.getKey()) == 0) pair.setValue(val);
      else if (comp.compare(key, pair.getKey()) < 0) {
@@ -27,6 +32,8 @@ class TreeNode <K, V> {
      }
 
 
+
+     // Prints values of the BST
     public void traverse () {
      if (left != null) left.traverse();
      System.out.println(pair);
@@ -47,6 +54,7 @@ class TreeNode <K, V> {
     }
 
 
+    // searches for the key and removes it from the BST
    public TreeNode<K, V> remove (K key, TreeNode<K, V> node, Comparator<K> comp) {
     if (node == null) return null;
     else if (comp.compare(key, node.pair.getKey()) < 0)
